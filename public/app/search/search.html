@@ -1,0 +1,46 @@
+<div class="container">
+	<div class="row header-container">
+		<div class="col-md-3">
+			<div>Hi {{firstName}} {{lastName}}</div>
+		</div>
+		<div class="col-md-6"></div>
+		<div class="col-md-3 pull-right">
+			<button class="btn btn-default" ng-click="logout()">Log out</button>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12 search-title">
+			Product Recommendation Search
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<form ng-submit="search()">
+				<div class="row">
+					<div class="col-md-11">
+						<input class="form-control" type="text" placeholder="Type product names here..." ng-model="searchBox">
+					</div>
+					<div class="col-md-1">
+						<button class="btn btn-success" type="submit">Search</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+	<div ng-show="loading" class="row search-loader-container">
+		<div class="loader"></div>
+	</div>
+	<div class="row search-results-container">
+		<div ng-repeat="result in results" class="col-md-3 search-result-card">
+			<div ng-click="getProduct(result.id)" class="card search-result-card-body">
+				<div class="card-body">
+					<div>
+						{{result.name[0]._value}}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+

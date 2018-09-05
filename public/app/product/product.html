@@ -1,0 +1,45 @@
+<div class="container">
+	<div class="row header-container">
+		<div class="col-md-3">
+			<div>Hi {{firstName}} {{lastName}}</div>
+		</div>
+		<div class="col-md-6"></div>
+		<div class="col-md-3 pull-right">
+			<button class="btn btn-default" ng-click="logout()">Log out</button>
+		</div>
+	</div>
+	<div ng-show="loading" class="row search-loader-container">
+		<div class="loader"></div>
+	</div>
+	<div ng-hide="loading">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="product-title">
+					{{product.properties.name[0].value}}
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div ng-hide="bought" class="col-md-12 product-button-container">
+				<button class="btn btn-success btn-lg" ng-click="buy()">Buy</button>
+			</div>
+			<div ng-show="bought" class="col-md-12 product-button-container">
+				You just bought this item!
+			</div>
+		</div>
+		<div class="row product-recommendations-title">
+			Recommendations: 
+		</div>
+		<div class="row search-results-container">
+			<div ng-repeat="result in recommendations" class="col-md-3 search-result-card">
+				<div ng-click="getProduct(result.id)" class="card search-result-card-body">
+					<div class="card-body">
+						<div>
+							{{result.properties.name[0].value}}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

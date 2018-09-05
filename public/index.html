@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="starter">
+	<head>
+		<title>Product Recommendations Platform</title>
+		<meta name="author" content="Ronald Ding"
+>
+		<!-- Favicon -->
+		<link rel="icon" type="image/png" href="img/favicon.png">
+
+		<!-- Style Sheets -->
+		<link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+		<link href="bower_components/font-awesome/css/font-awesome.css" rel="stylesheet">
+		<link href="styles/styles.css" rel="stylesheet" type="text/css">
+
+		<!-- Node Modules -->
+		<script src="bower_components/jquery/dist/jquery.js"></script>
+		<script src="bower_components/angular/angular.js"></script>
+		<script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+		<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+		<script src="bower_components/angular-cookies/angular-cookies.js"></script>
+
+		<!-- Additional Scripts -->
+		<script src="app/scripts/sha.js"></script>
+
+		<!-- Application Framework -->
+		<script src="app/app.js"></script>
+
+		<!-- Application Pages -->
+		<script src="app/home/home.controller.js"></script>
+		<script src="app/home/home.service.js"></script>
+		<script src="app/product/product.controller.js"></script>
+		<script src="app/product/product.service.js"></script>
+		<script src="app/search/search.controller.js"></script>
+		<script src="app/search/search.service.js"></script>
+		<script src="app/session/session.service.js"></script>
+
+	</head>
+	<body>
+		<div ui-view></div>
+	</body>
+</html>

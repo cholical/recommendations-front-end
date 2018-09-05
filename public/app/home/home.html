@@ -1,0 +1,51 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-12 home-title-container">
+			<div class="home-title">Product Recommendation Platform</div>
+		</div>
+	</div>
+	<div class="row">
+		<div ng-if="createUserDisplay" class="col-md-12 home-form">
+			<div class="home-form-title">Create Account</div>
+			<div class="home-form-title-change">
+				<div ng-click="changeCreateUserDisplay(false);">Already have an account? Click here to login.</div>
+			</div>
+			<div class="home-form-error" ng-if="repeatUsername">
+				There is already an account with this username. Please select a different username.
+			</div>
+			<form name="createForm" novalidate ng-submit="createUser()">
+				<label for="createFirstName">First Name</label>
+				<input id="createFirstName" class="form-control" ng-model="createCredentials.firstName" required>
+				<label for="createLastName">Last Name</label>
+				<input id="createLastName" class="form-control" ng-model="createCredentials.lastName" required>
+				<label for="createUsername">Username</label>
+				<input id="createUsername" class="form-control" ng-model="createCredentials.username" required>
+				<label for="createPassword">Password</label>
+				<input id="createPassword" type="password" class="form-control" ng-model="createCredentials.password" required>
+				<label for="createConfirmPassword">Confirm Password</label>
+				<input id="createConfirmPassword" type="password" class="form-control" ng-model="createCredentials.confirmPassword" required>
+				<div class="home-form-button-container">
+					<button class="btn btn-success" type="submit" ng-disabled="createForm.$invalid || createCredentials.password != createCredentials.confirmPassword">Create Account</button>
+				</div>
+			</form>
+		</div>
+		<div ng-if="!createUserDisplay" class="col-md-12 home-form">
+			<div class="home-form-title">Login</div>
+			<div class="home-form-title-change">
+				<div ng-click="changeCreateUserDisplay(true);">Don't have an account? Click here to create account.</div>
+			</div>
+			<div class="home-form-error" ng-if="incorrectCredentials">
+				Incorrect credentials. Please try again.
+			</div>
+			<form name="loginForm" novalidate ng-submit="login()">
+				<label for="loginUsername">Username</label>
+				<input id="loginUsername" class="form-control" ng-model="credentials.username" required>
+				<label for="loginPassword">Password</label>
+				<input id="loginPassword" type="password" class="form-control" ng-model="credentials.password" required>
+				<div class="home-form-button-container">
+					<button class="btn btn-success" type="submit" ng-disabled="loginForm.$invalid">Login</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
