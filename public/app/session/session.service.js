@@ -6,6 +6,7 @@
 
   app.factory('sessionSvc', ['$http', '$log', '$state', '$cookies', function sessionSvc($http, $log, $state, $cookies) {
 
+    var urlBase = 'https://ronald-recommendations.azurewebsites.net/api';
   	var firstName;
     var lastName;
     var accessToken;
@@ -39,7 +40,7 @@
       var params = {
         accessToken: getAccessToken()
       }
-      return $http.post('https://localhost:44316/api/logout', params).then(function (response) {
+      return $http.post(`${urlBase}/logout`, params).then(function (response) {
         firstName = undefined;
         lastName = undefined;
         accessToken = undefined;

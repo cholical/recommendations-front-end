@@ -6,7 +6,9 @@
 
   app.factory('homeSvc', ['$http', '$log', '$cookies', 'sha256', 'sessionSvc', function homeSvc($http, $log, $cookies, sha256, sessionSvc) {
 
-  	var test = function () {
+      var urlBase = 'https://ronald-recommendations.azurewebsites.net/api';
+
+      var test = function () {
   		var params = {
         test: ''
       }
@@ -19,7 +21,7 @@
       var params = angular.copy(createCredentials);
       params.password = sha256.convertToSHA256(params.password);
       delete params.confirmPassword;
-      return $http.post('https://localhost:44316/api/createuser', params).then(function (response) {
+      return $http.post(`${urlBase}/createuser`, params).then(function (response) {
         if (response.data.repeatUsername) {
           return response.data;
         } else {
@@ -32,7 +34,7 @@
     var login = function (credentials) {
       var params = angular.copy(credentials);
       params.password = sha256.convertToSHA256(params.password);
-      return $http.post('https://localhost:44316/api/login', params).then(function (response) {
+      return $http.post(`${urlBase}/login`, params).then(function (response) {
         if (response.data.incorrectCredentials) {
           return response.data;
         } else {
